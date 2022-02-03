@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #eee;
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.dp-container {
+    border: 1px solid #FFF;
+    color: aqua;
+    border-radius: 3px;
+    padding: 1rem;
+}
