@@ -15,17 +15,6 @@ const rulesStyles = {
     ],
 }
 
-/*const rulesBabel = {
-    test: /\.m?js$/,
-    exclude: /(node_modules|bower_components)/,
-    use: {
-        loader: 'babel-loader',
-        options: {
-            presets: ['@babel/preset-env']
-        }
-    }
-}*/
-
 module.exports = function (env) {
     Dotenv.config({path: './.env.' + env.NODE_ENV});
     const config = {
