@@ -2,7 +2,29 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
 const DotenvFlow = require('dotenv-flow-webpack');
+const {WebpackManifestPlugin} = require('webpack-manifest-plugin');
 const Dotenv = require('dotenv')
+
+const mapFileManifest = (file) => {
+    if (process.env.NODE_ENV === 'development') {
+        return file
+    }
+    file.path = `${process.env.PUBLIC_URL}/${file.path}`
+    return file;
+}
+
+const serializeManifest = (seed, files, entries) => {
+    files = files.map(mapFileManifest)
+    const filesSerialized = {}
+    for (const file of files) {
+        filesSerialized[file.name] = file.path;
+    }
+
+    return {
+        files: filesSerialized,
+        entrypoints: entries
+    };
+}
 
 const rulesStyles = {
     test: /\.(sa|sc|c)ss$/,
@@ -35,7 +57,12 @@ module.exports = function (env) {
             }),
             new DotenvFlow({
                 node_env: env.NODE_ENV ? env.NODE_ENV : 'development'
-            })],
+            }),
+            new WebpackManifestPlugin({
+                fileName: 'asset-manifest.json',
+                generate: serializeManifest
+            }),
+        ],
         module: {
             rules: [rulesStyles/*, rulesBabel*/]
         }
