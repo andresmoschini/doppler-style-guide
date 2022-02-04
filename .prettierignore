@@ -25,3 +25,5 @@ package-lock.json
 /build
 *.env
 *.env.*
+.idea
+*.log
