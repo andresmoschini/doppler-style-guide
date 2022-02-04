@@ -1,4 +1,4 @@
-import {sayHi} from './util'
-import './styles.scss'
+import { sayHi } from "./util";
+import "./styles.scss";
 
-sayHi()
+sayHi();
