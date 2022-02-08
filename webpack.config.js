@@ -22,7 +22,7 @@ const serializeManifest = (seed, files, entries) => {
 
   return {
     files: filesSerialized,
-    entrypoints: entries,
+    entrypoints: entries.main,
   };
 };
 
@@ -40,6 +40,10 @@ const rulesStyles = {
 module.exports = function (env) {
   Dotenv.config({ path: "./.env." + env.NODE_ENV });
   const config = {
+    entry: {
+      main: "./src/index.js",
+    },
+    mode: env.NODE_ENV === "production" ? env.NODE_ENV : "development",
     output: {
       filename:
         env.NODE_ENV === "production"

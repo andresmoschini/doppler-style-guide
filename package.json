@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GusBaamonde/doppler-style-guide.git"
+    "url": "git+https://github.com/FromDoppler/doppler-style-guide.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GusBaamonde/doppler-style-guide/issues"
+    "url": "https://github.com/FromDoppler/doppler-style-guide/issues"
   },
-  "homepage": "https://github.com/GusBaamonde/doppler-style-guide#readme",
+  "homepage": "https://github.com/FromDoppler/doppler-style-guide#readme",
   "devDependencies": {
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
